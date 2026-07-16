@@ -8,6 +8,14 @@
 <meta property="og:title" content="Joni Supriyono Arif Pramadya — Senior Mobile Engineer">
 <meta property="og:description" content="10+ years building scalable Android, iOS & Flutter apps. Fintech, healthcare, social & enterprise.">
 <meta property="og:type" content="website">
+<script>
+  (function() {
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme) {
+      document.documentElement.setAttribute("data-theme", savedTheme);
+    }
+  })();
+</script>
 <style>
   :root{
     --bg:#ffffff;
@@ -18,13 +26,64 @@
     --accent-soft:#e8f1fd;
     --border:#e5e8ec;
     --radius:14px;
+    --card-bg:#ffffff;
+    --nav-bg:rgba(255,255,255,.92);
+    --footer-bg:#1a1d21;
+    --footer-text:#cfd4da;
+    color-scheme: light dark;
   }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg:#0d1117;
+      --bg-soft:#161b22;
+      --text:#c9d1d9;
+      --muted:#8b949e;
+      --accent:#58a6ff;
+      --accent-soft:rgba(56, 139, 253, 0.15);
+      --border:#30363d;
+      --card-bg:#161b22;
+      --nav-bg:rgba(13,17,23,.92);
+      --footer-bg:#0b0d10;
+      --footer-text:#8b949e;
+    }
+  }
+
+  :root[data-theme="light"] {
+    --bg:#ffffff;
+    --bg-soft:#f7f8fa;
+    --text:#1a1d21;
+    --muted:#5c6470;
+    --accent:#0f6fde;
+    --accent-soft:#e8f1fd;
+    --border:#e5e8ec;
+    --card-bg:#ffffff;
+    --nav-bg:rgba(255,255,255,.92);
+    --footer-bg:#1a1d21;
+    --footer-text:#cfd4da;
+  }
+
+  :root[data-theme="dark"] {
+    --bg:#0d1117;
+    --bg-soft:#161b22;
+    --text:#c9d1d9;
+    --muted:#8b949e;
+    --accent:#58a6ff;
+    --accent-soft:rgba(56, 139, 253, 0.15);
+    --border:#30363d;
+    --card-bg:#161b22;
+    --nav-bg:rgba(13,17,23,.92);
+    --footer-bg:#0b0d10;
+    --footer-text:#8b949e;
+  }
+
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
   body{
     font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
     background:var(--bg);color:var(--text);line-height:1.6;
     -webkit-font-smoothing:antialiased;
+    transition:background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
   }
   .container{max-width:860px;margin:0 auto;padding:0 20px}
   a{color:var(--accent);text-decoration:none;word-break:break-word}
@@ -32,24 +91,61 @@
 
   /* Nav */
   nav{
-    position:sticky;top:0;z-index:10;background:rgba(255,255,255,.92);
+    position:sticky;top:0;z-index:10;background:var(--nav-bg);
     backdrop-filter:blur(8px);border-bottom:1px solid var(--border);
+    transition:background-color 0.2s ease, border-color 0.2s ease;
   }
   .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;max-width:860px;margin:0 auto}
   .nav-name{font-weight:700;font-size:1rem;color:var(--text)}
-  .nav-links{display:flex;gap:18px;flex-wrap:wrap}
-  .nav-links a{font-size:.9rem;color:var(--muted)}
+  .nav-links{display:flex;gap:18px;flex-wrap:wrap;align-items:center}
+  .nav-links a{font-size:.9rem;color:var(--muted);transition:color 0.15s ease}
   .nav-links a:hover{color:var(--accent);text-decoration:none}
 
+  /* Theme Toggle Button */
+  .theme-toggle-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--muted);
+    padding: 6px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    transition: background 0.15s, color 0.15s;
+  }
+  .theme-toggle-btn:hover {
+    background: var(--bg-soft);
+    color: var(--accent);
+  }
+  .theme-toggle-btn svg {
+    width: 20px;
+    height: 20px;
+  }
+  .sun-icon { display: none; }
+  .moon-icon { display: block; }
+
+  @media (prefers-color-scheme: dark) {
+    .sun-icon { display: block; }
+    .moon-icon { display: none; }
+  }
+  :root[data-theme="light"] .sun-icon { display: none; }
+  :root[data-theme="light"] .moon-icon { display: block; }
+  :root[data-theme="dark"] .sun-icon { display: block; }
+  :root[data-theme="dark"] .moon-icon { display: none; }
+
   /* Hero */
-  header{padding:64px 0 48px;text-align:center;background:var(--bg-soft)}
+  header{padding:64px 0 48px;text-align:center;background:var(--bg-soft);transition:background-color 0.2s ease}
   .avatar{
     width:110px;height:110px;border-radius:50%;background:var(--accent-soft);
     margin:0 auto 20px;border:2px solid var(--border);
     object-fit:cover;display:block;
+    transition:border-color 0.2s ease, background-color 0.2s ease;
   }
   h1{font-size:clamp(1.7rem,5vw,2.4rem);font-weight:800;letter-spacing:-.02em}
-  .tagline{color:var(--accent);font-weight:600;margin-top:6px;font-size:1.05rem}
+  .tagline{color:var(--accent);font-weight:600;margin-top:6px;font-size:1.05rem;transition:color 0.2s ease}
   .location{color:var(--muted);font-size:.95rem;margin-top:6px}
   .summary{max-width:640px;margin:20px auto 0;color:var(--muted);font-size:1rem}
 
@@ -58,7 +154,7 @@
   .btn{
     display:inline-flex;align-items:center;gap:8px;
     padding:12px 20px;border-radius:999px;font-size:.95rem;font-weight:600;
-    border:1px solid var(--border);background:#fff;color:var(--text);
+    border:1px solid var(--border);background:var(--card-bg);color:var(--text);
     transition:all .15s ease;min-height:44px;
   }
   .btn:hover{border-color:var(--accent);color:var(--accent);text-decoration:none}
@@ -67,26 +163,42 @@
   .btn svg{width:18px;height:18px;flex-shrink:0}
 
   /* Sections */
-  section{padding:52px 0}
+  section{padding:52px 0;transition:background-color 0.2s ease}
   section:nth-of-type(even){background:var(--bg-soft)}
   h2{font-size:1.4rem;font-weight:800;margin-bottom:24px;letter-spacing:-.01em}
   h2 span{color:var(--accent)}
 
   /* Skills */
+  .skill-group {
+    margin-bottom: 24px;
+  }
+  .skill-group:last-child {
+    margin-bottom: 0;
+  }
+  .skill-group h3 {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--muted);
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
   .chips{display:flex;flex-wrap:wrap;gap:10px}
   .chip{
     background:var(--accent-soft);color:var(--accent);font-weight:600;
     font-size:.85rem;padding:8px 14px;border-radius:999px;
+    transition:background-color 0.2s ease, color 0.2s ease;
   }
 
   /* Experience */
   .job{
     border:1px solid var(--border);border-radius:var(--radius);
-    padding:20px 22px;margin-bottom:16px;background:#fff;
+    padding:20px 22px;margin-bottom:16px;background:var(--card-bg);
+    transition:background-color 0.2s ease, border-color 0.2s ease;
   }
   .job-head{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 12px;align-items:baseline}
   .job h3{font-size:1.05rem;font-weight:700}
-  .job .role{color:var(--accent);font-weight:600;font-size:.95rem}
+  .job .role{color:var(--accent);font-weight:600;font-size:.95rem;transition:color 0.2s ease}
   .job .period{color:var(--muted);font-size:.85rem;white-space:nowrap}
   .job ul{margin:10px 0 0 18px;color:var(--muted);font-size:.93rem}
   .job li{margin-bottom:4px}
@@ -97,23 +209,25 @@
   .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px}
   .card{
     border:1px solid var(--border);border-radius:var(--radius);
-    padding:18px;background:#fff;
+    padding:18px;background:var(--card-bg);
+    transition:background-color 0.2s ease, border-color 0.2s ease;
   }
   .card h3{font-size:1rem;font-weight:700;margin-bottom:4px}
   .card p{color:var(--muted);font-size:.88rem}
-  .tag{display:inline-block;margin-top:10px;font-size:.78rem;font-weight:600;color:var(--accent);background:var(--accent-soft);padding:4px 10px;border-radius:999px}
+  .tag{display:inline-block;margin-top:10px;font-size:.78rem;font-weight:600;color:var(--accent);background:var(--accent-soft);padding:4px 10px;border-radius:999px;transition:background-color 0.2s ease, color 0.2s ease;}
 
   /* Awards / education */
   .flat-list{list-style:none}
   .flat-list li{
     display:flex;gap:12px;align-items:baseline;padding:12px 0;
     border-bottom:1px solid var(--border);font-size:.95rem;
+    transition:border-color 0.2s ease;
   }
   .flat-list li:last-child{border-bottom:none}
   .flat-list .year{color:var(--muted);font-size:.85rem;min-width:52px}
 
   /* Footer */
-  footer{padding:44px 0;text-align:center;background:var(--text);color:#cfd4da}
+  footer{padding:44px 0;text-align:center;background:var(--footer-bg);color:var(--footer-text);transition:background-color 0.2s ease, color 0.2s ease;}
   footer .contact-row{margin-top:18px}
   footer .btn{background:transparent;border-color:#3a3f46;color:#fff}
   footer .btn:hover{border-color:var(--accent);color:var(--accent)}
@@ -139,6 +253,16 @@
       <a href="#projects">Projects</a>
       <a href="#awards">Awards</a>
       <a href="#contact">Contact</a>
+      <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle dark mode">
+        <!-- Sun icon -->
+        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+        <!-- Moon icon -->
+        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
     </div>
   </div>
 </nav>
@@ -183,41 +307,76 @@
 <section id="skills">
   <div class="container">
     <h2><span>#</span> Skills</h2>
-    <div class="chips">
-      <span class="chip">Flutter</span>
-      <span class="chip">Android (Kotlin/Java)</span>
-      <span class="chip">iOS (Swift)</span>
-      <span class="chip">Clean Architecture</span>
-      <span class="chip">Bloc</span>
-      <span class="chip">MVVM</span>
-      <span class="chip">VIPER</span>
-      <span class="chip">Firebase</span>
-      <span class="chip">GraphQL</span>
-      <span class="chip">REST API</span>
-      <span class="chip">gRPC</span>
-      <span class="chip">WebSocket</span>
-      <span class="chip">AWS Amplify</span>
-      <span class="chip">Cognito</span>
-      <span class="chip">S3</span>
-      <span class="chip">DynamoDB</span>
-      <span class="chip">Codemagic</span>
-      <span class="chip">GitHub Actions</span>
-      <span class="chip">Crashlytics</span>
-      <span class="chip">Sentry</span>
-      <span class="chip">Performance Optimization</span>
-      <span class="chip">AI Integration</span>
-      <span class="chip">AI-Assisted Development</span>
-      <span class="chip">Prompt Engineering</span>
-      <span class="chip">Python</span>
-      <span class="chip">PHP</span>
-      <span class="chip">PostgreSQL</span>
-      <span class="chip">JavaScript</span>
-      <span class="chip">TypeScript</span>
-      <span class="chip">React.js</span>
-      <span class="chip">Next.js</span>
-      <span class="chip">Tailwind CSS</span>
-      <span class="chip">Blockchain</span>
+    
+    <div class="skill-group">
+      <h3>Mobile Development</h3>
+      <div class="chips">
+        <span class="chip">Flutter</span>
+        <span class="chip">Android (Kotlin/Java)</span>
+        <span class="chip">iOS (Swift)</span>
+        <span class="chip">Clean Architecture</span>
+        <span class="chip">Bloc</span>
+        <span class="chip">MVVM</span>
+        <span class="chip">VIPER</span>
+      </div>
     </div>
+
+    <div class="skill-group">
+      <h3>Web &amp; Frontend</h3>
+      <div class="chips">
+        <span class="chip">React.js</span>
+        <span class="chip">Next.js</span>
+        <span class="chip">TypeScript</span>
+        <span class="chip">JavaScript</span>
+        <span class="chip">Tailwind CSS</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <h3>Backend &amp; APIs</h3>
+      <div class="chips">
+        <span class="chip">Python</span>
+        <span class="chip">PHP</span>
+        <span class="chip">GraphQL</span>
+        <span class="chip">REST API</span>
+        <span class="chip">gRPC</span>
+        <span class="chip">WebSocket</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <h3>Cloud &amp; Databases</h3>
+      <div class="chips">
+        <span class="chip">PostgreSQL</span>
+        <span class="chip">DynamoDB</span>
+        <span class="chip">Firebase</span>
+        <span class="chip">AWS Amplify</span>
+        <span class="chip">Cognito</span>
+        <span class="chip">S3</span>
+        <span class="chip">Blockchain</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <h3>DevOps &amp; Tools</h3>
+      <div class="chips">
+        <span class="chip">Codemagic</span>
+        <span class="chip">GitHub Actions</span>
+        <span class="chip">Crashlytics</span>
+        <span class="chip">Sentry</span>
+        <span class="chip">Performance Optimization</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <h3>AI &amp; Emerging Tech</h3>
+      <div class="chips">
+        <span class="chip">AI Integration</span>
+        <span class="chip">AI-Assisted Development</span>
+        <span class="chip">Prompt Engineering</span>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -372,6 +531,40 @@
     <p class="fine">© 2026 Joni Supriyono Arif Pramadya · Kulon Progo, Yogyakarta, Indonesia</p>
   </div>
 </footer>
+
+<script>
+  (function() {
+    const themeToggleBtn = document.getElementById("theme-toggle");
+    
+    function getCurrentTheme() {
+      const savedTheme = localStorage.getItem("theme");
+      if (savedTheme) return savedTheme;
+      return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    }
+
+    function updateToggleButton() {
+      const theme = getCurrentTheme();
+      themeToggleBtn.setAttribute("aria-label", `Switch to ${theme === "dark" ? "light" : "dark"} mode`);
+    }
+
+    themeToggleBtn.addEventListener("click", () => {
+      const currentTheme = getCurrentTheme();
+      const newTheme = currentTheme === "dark" ? "light" : "dark";
+      
+      document.documentElement.setAttribute("data-theme", newTheme);
+      localStorage.setItem("theme", newTheme);
+      updateToggleButton();
+    });
+
+    window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => {
+      if (!localStorage.getItem("theme")) {
+        updateToggleButton();
+      }
+    });
+
+    updateToggleButton();
+  })();
+</script>
 
 </body>
 </html>

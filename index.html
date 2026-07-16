@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Joni Supriyono Arif Pramadya — Senior Mobile Engineer</title>
+<meta name="description" content="Senior Mobile Engineer with 10+ years of experience building Android, iOS, and Flutter applications across fintech, healthcare, social, and enterprise domains.">
+<meta property="og:title" content="Joni Supriyono Arif Pramadya — Senior Mobile Engineer">
+<meta property="og:description" content="10+ years building scalable Android, iOS & Flutter apps. Fintech, healthcare, social & enterprise.">
+<meta property="og:type" content="website">
+<style>
+  :root{
+    --bg:#ffffff;
+    --bg-soft:#f7f8fa;
+    --text:#1a1d21;
+    --muted:#5c6470;
+    --accent:#0f6fde;
+    --accent-soft:#e8f1fd;
+    --border:#e5e8ec;
+    --radius:14px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:var(--bg);color:var(--text);line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .container{max-width:860px;margin:0 auto;padding:0 20px}
+  a{color:var(--accent);text-decoration:none;word-break:break-word}
+  a:hover{text-decoration:underline}
+
+  /* Nav */
+  nav{
+    position:sticky;top:0;z-index:10;background:rgba(255,255,255,.92);
+    backdrop-filter:blur(8px);border-bottom:1px solid var(--border);
+  }
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;max-width:860px;margin:0 auto}
+  .nav-name{font-weight:700;font-size:1rem;color:var(--text)}
+  .nav-links{display:flex;gap:18px;flex-wrap:wrap}
+  .nav-links a{font-size:.9rem;color:var(--muted)}
+  .nav-links a:hover{color:var(--accent);text-decoration:none}
+
+  /* Hero */
+  header{padding:64px 0 48px;text-align:center;background:var(--bg-soft)}
+  .avatar{
+    width:110px;height:110px;border-radius:50%;background:var(--accent-soft);
+    display:flex;align-items:center;justify-content:center;margin:0 auto 20px;
+    font-size:2.2rem;font-weight:700;color:var(--accent);border:2px solid var(--border);
+  }
+  h1{font-size:clamp(1.7rem,5vw,2.4rem);font-weight:800;letter-spacing:-.02em}
+  .tagline{color:var(--accent);font-weight:600;margin-top:6px;font-size:1.05rem}
+  .location{color:var(--muted);font-size:.95rem;margin-top:6px}
+  .summary{max-width:640px;margin:20px auto 0;color:var(--muted);font-size:1rem}
+
+  /* Contact buttons */
+  .contact-row{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:28px}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:12px 20px;border-radius:999px;font-size:.95rem;font-weight:600;
+    border:1px solid var(--border);background:#fff;color:var(--text);
+    transition:all .15s ease;min-height:44px;
+  }
+  .btn:hover{border-color:var(--accent);color:var(--accent);text-decoration:none}
+  .btn.primary{background:var(--accent);color:#fff;border-color:var(--accent)}
+  .btn.primary:hover{opacity:.9;color:#fff}
+  .btn svg{width:18px;height:18px;flex-shrink:0}
+
+  /* Sections */
+  section{padding:52px 0}
+  section:nth-of-type(even){background:var(--bg-soft)}
+  h2{font-size:1.4rem;font-weight:800;margin-bottom:24px;letter-spacing:-.01em}
+  h2 span{color:var(--accent)}
+
+  /* Skills */
+  .chips{display:flex;flex-wrap:wrap;gap:10px}
+  .chip{
+    background:var(--accent-soft);color:var(--accent);font-weight:600;
+    font-size:.85rem;padding:8px 14px;border-radius:999px;
+  }
+
+  /* Experience */
+  .job{
+    border:1px solid var(--border);border-radius:var(--radius);
+    padding:20px 22px;margin-bottom:16px;background:#fff;
+  }
+  .job-head{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 12px;align-items:baseline}
+  .job h3{font-size:1.05rem;font-weight:700}
+  .job .role{color:var(--accent);font-weight:600;font-size:.95rem}
+  .job .period{color:var(--muted);font-size:.85rem;white-space:nowrap}
+  .job ul{margin:10px 0 0 18px;color:var(--muted);font-size:.93rem}
+  .job li{margin-bottom:4px}
+  .job .stack{margin-top:10px;font-size:.85rem;color:var(--muted)}
+  .job .stack b{color:var(--text)}
+
+  /* Projects grid */
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px}
+  .card{
+    border:1px solid var(--border);border-radius:var(--radius);
+    padding:18px;background:#fff;
+  }
+  .card h3{font-size:1rem;font-weight:700;margin-bottom:4px}
+  .card p{color:var(--muted);font-size:.88rem}
+  .tag{display:inline-block;margin-top:10px;font-size:.78rem;font-weight:600;color:var(--accent);background:var(--accent-soft);padding:4px 10px;border-radius:999px}
+
+  /* Awards / education */
+  .flat-list{list-style:none}
+  .flat-list li{
+    display:flex;gap:12px;align-items:baseline;padding:12px 0;
+    border-bottom:1px solid var(--border);font-size:.95rem;
+  }
+  .flat-list li:last-child{border-bottom:none}
+  .flat-list .year{color:var(--muted);font-size:.85rem;min-width:52px}
+
+  /* Footer */
+  footer{padding:44px 0;text-align:center;background:var(--text);color:#cfd4da}
+  footer .contact-row{margin-top:18px}
+  footer .btn{background:transparent;border-color:#3a3f46;color:#fff}
+  footer .btn:hover{border-color:var(--accent);color:var(--accent)}
+  footer .fine{margin-top:26px;font-size:.8rem;color:#8a919a}
+
+  @media (max-width:600px){
+    header{padding:44px 0 36px}
+    section{padding:40px 0}
+    .nav-links{gap:12px}
+    .nav-links a:nth-child(n+4){display:none}
+    .job-head{flex-direction:column}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <span class="nav-name">Joni S. A. Pramadya</span>
+    <div class="nav-links">
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#awards">Awards</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header>
+  <div class="container">
+    <div class="avatar">JP</div>
+    <h1>Joni Supriyono Arif Pramadya</h1>
+    <p class="tagline">Senior Mobile Engineer · Android · iOS · Flutter</p>
+    <p class="location">Kulon Progo, Yogyakarta, Indonesia</p>
+    <p class="summary">
+      Senior Mobile Engineer with 10+ years of experience building scalable Android, iOS, and Flutter
+      applications across fintech, healthcare, social, and enterprise domains. Experienced in mobile
+      architecture, CI/CD, production release management, and real-time systems — currently expanding
+      into AI-powered mobile applications and AI-assisted development workflows.
+    </p>
+    <div class="contact-row">
+      <a class="btn primary" href="mailto:johnnypramadya@gmail.com">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+        Email Me
+      </a>
+      <a class="btn" href="tel:+6285726494547">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.08 4.18 2 2 0 0 1 4.06 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.22a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        Call
+      </a>
+      <a class="btn" href="https://wa.me/6285726494547" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.14-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.5 0 1.47 1.07 2.89 1.22 3.09.15.2 2.11 3.22 5.1 4.51.71.31 1.27.49 1.7.63.72.23 1.37.2 1.88.12.58-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.42-.08-.12-.28-.2-.58-.34zM12.04 21.5h-.01a9.4 9.4 0 0 1-4.8-1.32l-.34-.2-3.56.93.95-3.47-.22-.36a9.4 9.4 0 0 1-1.45-5.03c0-5.2 4.24-9.43 9.44-9.43a9.38 9.38 0 0 1 9.43 9.44c0 5.2-4.23 9.44-9.44 9.44zm8.03-17.46A11.3 11.3 0 0 0 12.03 .7C5.8.7.73 5.77.73 12.01c0 1.99.52 3.94 1.51 5.65L.65 23.3l5.78-1.52a11.3 11.3 0 0 0 5.6 1.48h.01c6.23 0 11.3-5.07 11.3-11.31 0-3.02-1.17-5.86-3.31-8z"/></svg>
+        WhatsApp
+      </a>
+      <a class="btn" href="https://www.linkedin.com/in/joni-pramadya-44902854/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.55C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+        LinkedIn
+      </a>
+      <a class="btn" href="https://github.com/johnnypramadya" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57L9 21.07c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.08-.74.09-.73.09-.73 1.2.09 1.83 1.24 1.83 1.24 1.08 1.83 2.81 1.3 3.5 1 .1-.78.42-1.31.76-1.61-2.66-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.49 5.92.43.37.81 1.1.81 2.22l-.01 3.29c0 .32.22.7.83.57A12 12 0 0 0 12 .3z"/></svg>
+        GitHub
+      </a>
+    </div>
+  </div>
+</header>
+
+<section id="skills">
+  <div class="container">
+    <h2><span>#</span> Skills</h2>
+    <div class="chips">
+      <span class="chip">Flutter</span>
+      <span class="chip">Android (Kotlin/Java)</span>
+      <span class="chip">iOS (Swift)</span>
+      <span class="chip">Clean Architecture</span>
+      <span class="chip">Bloc</span>
+      <span class="chip">MVVM</span>
+      <span class="chip">VIPER</span>
+      <span class="chip">Firebase</span>
+      <span class="chip">GraphQL</span>
+      <span class="chip">REST API</span>
+      <span class="chip">gRPC</span>
+      <span class="chip">WebSocket</span>
+      <span class="chip">AWS Amplify</span>
+      <span class="chip">Cognito</span>
+      <span class="chip">S3</span>
+      <span class="chip">DynamoDB</span>
+      <span class="chip">Codemagic</span>
+      <span class="chip">GitHub Actions</span>
+      <span class="chip">Crashlytics</span>
+      <span class="chip">Sentry</span>
+      <span class="chip">Performance Optimization</span>
+      <span class="chip">AI Integration</span>
+      <span class="chip">AI-Assisted Development</span>
+      <span class="chip">Prompt Engineering</span>
+      <span class="chip">Python</span>
+      <span class="chip">PHP</span>
+      <span class="chip">PostgreSQL</span>
+      <span class="chip">JavaScript</span>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="container">
+    <h2><span>#</span> Experience</h2>
+
+    <div class="job">
+      <div class="job-head">
+        <div><h3>Velvett, Singapore</h3><div class="role">Senior Software Engineer</div></div>
+        <span class="period">Jul 2025 – Apr 2026</span>
+      </div>
+      <ul>
+        <li>Built and maintained a production-ready digital gacha platform: coin purchases, gacha pulls, item lifecycle, and physical shipping.</li>
+        <li>Shipped multiple live mobile app releases with real users and App Store compliance.</li>
+        <li>Reduced crash rate using Crashlytics-driven fixes.</li>
+        <li>Delivered complex business flows (appraisal → offer → wallet → withdrawal).</li>
+        <li>Proven experience handling Japan-market production apps.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-head">
+        <div><h3>Amartha Microfinance, Indonesia</h3><div class="role">Senior Mobile Developer</div></div>
+        <span class="period">Jul 2023 – 2025</span>
+      </div>
+      <ul>
+        <li>Migrated Amartha Plus Mobile from native to Flutter.</li>
+        <li>Integrated with back-end APIs and supporting systems.</li>
+        <li>Published apps to the App Store and Google Play Store.</li>
+      </ul>
+      <p class="stack"><b>Stack:</b> Android Kotlin, Flutter, Firebase</p>
+    </div>
+
+    <div class="job">
+      <div class="job-head">
+        <div><h3>Monit Pay, Indonesia</h3><div class="role">Senior Mobile Developer</div></div>
+        <span class="period">Mar 2022 – Jul 2023</span>
+      </div>
+      <ul>
+        <li>Worked with the Co-Founder to translate business requirements into technical requirements.</li>
+        <li>Built the application from scratch and led architectural review of the mobile project.</li>
+        <li>Directed the mobile team in design, development, testing, and debugging.</li>
+        <li>Published apps on the App Store and Google Play Store.</li>
+      </ul>
+      <p class="stack"><b>Stack:</b> Flutter, GraphQL, Firebase, Codemagic, GitHub Actions, Sentry, Python, PostgreSQL</p>
+    </div>
+
+    <div class="job">
+      <div class="job-head">
+        <div><h3>Klar Smile, Indonesia</h3><div class="role">Senior Mobile Developer</div></div>
+        <span class="period">Dec 2021 – Mar 2022</span>
+      </div>
+      <ul>
+        <li>Maintained the mobile app: bug fixing and performance improvements.</li>
+        <li>Implemented mobile architecture best practices and CI/CD with Codemagic.</li>
+      </ul>
+      <p class="stack"><b>Stack:</b> Flutter, Android Native, iOS Native, REST API, Firebase, Sentry, Codemagic, Laravel, PostgreSQL</p>
+    </div>
+
+    <div class="job">
+      <div class="job-head">
+        <div><h3>TimeGap, Singapore</h3><div class="role">Senior Mobile Developer</div></div>
+        <span class="period">Jul 2020 – Mar 2022</span>
+      </div>
+      <ul>
+        <li>Worked directly with CEO and CTO to translate business into technical requirements.</li>
+        <li>Built the application from scratch and guided architectural reviews.</li>
+      </ul>
+      <p class="stack"><b>Stack:</b> Flutter, Android, iOS Native, GraphQL, AWS Cognito, Amplify, S3, Lambda, Rekognition, Agora, Stripe, Xendit, Firebase, DynamoDB</p>
+    </div>
+
+    <div class="job">
+      <div class="job-head">
+        <div><h3>HelloApp Messenger, Yogyakarta</h3><div class="role">Senior Mobile Developer</div></div>
+        <span class="period">Mar 2017 – Feb 2020</span>
+      </div>
+      <p class="stack"><b>Stack:</b> Android Kotlin, Flutter, gRPC, Firebase</p>
+    </div>
+
+    <div class="job">
+      <div class="job-head">
+        <div><h3>Gama Techno, Yogyakarta</h3><div class="role">Mobile Developer</div></div>
+        <span class="period">Feb 2015 – Feb 2017</span>
+      </div>
+      <ul>
+        <li>Developed Android (Java) apps: Hangout Deals, Lacakin, Cared Safety, DesaApp, Wahana Pet Indonesia, BPD DIY KU, Evenia, Siaga UGM.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-head">
+        <div><h3>CitraWeb Nusamedia, Yogyakarta</h3><div class="role">Mobile Developer</div></div>
+        <span class="period">2014 – 2015</span>
+      </div>
+      <ul>
+        <li>Developed Android (Java) apps: Indostreamers, Jogjastreamers, Gudegnet.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-head">
+        <div><h3>Gracia Visi Pratama, Semarang</h3><div class="role">IT Support</div></div>
+        <span class="period">2012 – 2013</span>
+      </div>
+      <ul>
+        <li>Installed a laboratory system in a national-scale hospital; on-site and remote network troubleshooting.</li>
+        <li>Built local network for the laboratory system using Windows Server; set up data communication with lab equipment.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="container">
+    <h2><span>#</span> Projects</h2>
+    <div class="grid">
+      <div class="card"><h3>PLN Daily</h3><p>Mobile Developer</p><span class="tag">Flutter</span></div>
+      <div class="card"><h3>Bhayangkara Hospital App</h3><p>Banjarmasin — Mobile Developer</p><span class="tag">Android Kotlin</span></div>
+      <div class="card"><h3>Paragon Mall App</h3><p>Solo — Mobile Developer</p><span class="tag">Android Kotlin</span></div>
+      <div class="card"><h3>Ekasakti University (UNES) App</h3><p>Padang — Mobile Developer</p><span class="tag">Flutter</span></div>
+      <div class="card"><h3>GeNose</h3><p>Mobile Developer</p><span class="tag">Flutter</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="awards">
+  <div class="container">
+    <h2><span>#</span> Awards &amp; Education</h2>
+    <ul class="flat-list">
+      <li><span class="year">2019</span> Indosat Hackathon TOP 12 Finalist — Jakarta</li>
+      <li><span class="year">2018</span> DILO Hackathon 1st Winner — Yogyakarta</li>
+      <li><span class="year">2006</span> High School Computer Olympiad 3rd Winner — Yogyakarta</li>
+      <li><span class="year">2007–2012</span> University of AMIKOM, Yogyakarta — B.Sc. Computer Science</li>
+    </ul>
+    <p style="margin-top:18px;color:var(--muted);font-size:.9rem"><b style="color:var(--text)">Languages:</b> English, Indonesian, Javanese</p>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="container">
+    <h2 style="color:#fff">Let's work together</h2>
+    <p>Open to mobile engineering &amp; AI-powered app opportunities.</p>
+    <div class="contact-row">
+      <a class="btn" href="mailto:johnnypramadya@gmail.com">Email</a>
+      <a class="btn" href="tel:+6285726494547">Call</a>
+      <a class="btn" href="https://wa.me/6285726494547" target="_blank" rel="noopener">WhatsApp</a>
+      <a class="btn" href="https://www.linkedin.com/in/joni-pramadya-44902854/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn" href="https://github.com/johnnypramadya" target="_blank" rel="noopener">GitHub</a>
+    </div>
+    <p class="fine">© 2026 Joni Supriyono Arif Pramadya · Kulon Progo, Yogyakarta, Indonesia</p>
+  </div>
+</footer>
+
+</body>
+</html>

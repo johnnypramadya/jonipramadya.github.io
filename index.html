@@ -45,8 +45,8 @@
   header{padding:64px 0 48px;text-align:center;background:var(--bg-soft)}
   .avatar{
     width:110px;height:110px;border-radius:50%;background:var(--accent-soft);
-    display:flex;align-items:center;justify-content:center;margin:0 auto 20px;
-    font-size:2.2rem;font-weight:700;color:var(--accent);border:2px solid var(--border);
+    margin:0 auto 20px;border:2px solid var(--border);
+    object-fit:cover;display:block;
   }
   h1{font-size:clamp(1.7rem,5vw,2.4rem);font-weight:800;letter-spacing:-.02em}
   .tagline{color:var(--accent);font-weight:600;margin-top:6px;font-size:1.05rem}
@@ -145,7 +145,7 @@
 
 <header>
   <div class="container">
-    <div class="avatar">JP</div>
+    <img class="avatar" src="assets/profile.png" alt="Joni Supriyono Arif Pramadya">
     <h1>Joni Supriyono Arif Pramadya</h1>
     <p class="tagline">Senior Mobile Engineer · Android · iOS · Flutter</p>
     <p class="location">Kulon Progo, Yogyakarta, Indonesia</p>
@@ -212,6 +212,11 @@
       <span class="chip">PHP</span>
       <span class="chip">PostgreSQL</span>
       <span class="chip">JavaScript</span>
+      <span class="chip">TypeScript</span>
+      <span class="chip">React.js</span>
+      <span class="chip">Next.js</span>
+      <span class="chip">Tailwind CSS</span>
+      <span class="chip">Blockchain</span>
     </div>
   </div>
 </section>
@@ -222,7 +227,7 @@
 
     <div class="job">
       <div class="job-head">
-        <div><h3>Velvett, Singapore</h3><div class="role">Senior Software Engineer</div></div>
+        <div><h3><a href="https://www.velvett.io/" target="_blank" rel="noopener">Velvett</a>, Singapore</h3><div class="role">Senior Software Engineer</div></div>
         <span class="period">Jul 2025 – Apr 2026</span>
       </div>
       <ul>
@@ -232,6 +237,7 @@
         <li>Delivered complex business flows (appraisal → offer → wallet → withdrawal).</li>
         <li>Proven experience handling Japan-market production apps.</li>
       </ul>
+      <p class="stack"><b>Stack:</b> Next.js, TypeScript, Tailwind CSS, PostgreSQL, Blockchain, React.js, Flutter</p>
     </div>
 
     <div class="job">
